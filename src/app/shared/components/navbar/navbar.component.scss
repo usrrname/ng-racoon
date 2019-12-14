@@ -1,0 +1,20 @@
+@import '~src/sass/variables';
+@import '~src/sass/styles';
+
+a {
+  color: $eggshell;
+}
+
+.fill-remaining-space{
+  flex: 1 1 auto;
+}
+
+.navbar.mat-toolbar {
+  height: 60px;
+  justify-content: space-between;
+}
+
+.logo {
+  justify-content: flex-start;
+  width: 40px;
+}

@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/test",
+            "outputPath": "dist/demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,9 +28,19 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/sass/styles.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+              "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/sass/_mixins.scss",
+                "src/sass/_variables.scss"
+              ]
+            },
+            "scripts": [
+              "node_modules/@webcomponents/custom-elements/custom-elements.min.js",
+              "node_modules/@clr/icons/clr-icons.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -93,7 +103,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/sass/styles.scss"
             ],
             "scripts": []
           }
@@ -124,6 +134,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "test"
 }
