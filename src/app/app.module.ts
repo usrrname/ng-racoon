@@ -5,10 +5,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
 // Components
 import { HomeComponent } from './components/home/home.component';
-import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +18,6 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     SharedModule,
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
   ],

@@ -6,14 +6,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { HomeLayoutComponent } from './shared/components/layouts/home-layout/home-layout.component';
 
-
 const routes: Routes = [
   { 
     path: '', component: HomeLayoutComponent,
     children: [
       { path: '', component: HomeComponent, pathMatch: 'full' }
     ]
-  }
+  },
+  { path: 'patients', loadChildren: () => import    ('./patients/patients.module').then(m => m.PatientsModule)
+}
   ];
 
 @NgModule({
