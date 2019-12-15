@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   logo = 'assets/patient.svg';
   showErrorMessage=false;
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
