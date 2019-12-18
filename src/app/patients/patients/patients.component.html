@@ -1,2 +1,12 @@
 
-<p>patients works!</p>
+<div class="container">
+  <div class="row">
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+      <mat-form-field>
+        <input matInput placeholder="Enter Patient ID" formControlName="id" type="text">
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" type="submit"> Get Info </button>
+    </form>
+  </div>
+</div>

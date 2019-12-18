@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 // Components
 import { HomeComponent } from './components/home/home.component';
-
+import { PatientService } from './services/patient.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

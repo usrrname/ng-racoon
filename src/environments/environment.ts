@@ -1,9 +1,16 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
 export const environment = {
-  production: false
+  queryURI: 'https://try.smilecdr.com:8000',
+  production: false,
+  base_href: '',
+  domain: 'http://localhost:4200',
+  redirectUri: 'http://localhost:4200',
+  clientId: 'Smile-CDR',
+  // jsonAPI: 'https://try.smilecdr.com/json-admin',
+  // nodeId: 'Master',
+  // moduleId: 'local_security',
 };
 
 /*

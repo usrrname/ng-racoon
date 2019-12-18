@@ -18,34 +18,17 @@ export interface BillingData {
     completed: boolean;
   }
   
-  export interface AnimalData {
+  export interface PatientData {
     id: string;
     location: string;
-    note: string;
   }
-  
+
   export interface NoteData {
     date: string;
     author: string;
     note: string;
     createdTimestamp: Date;
   }
-  
-  export interface WorkScreenResultObject {
-    status: string;
-    beginDate: string;
-    endDate: string;
-    chargeID: string;
-    createdOn: string;
-    investigator: string;
-    requestor: string;
-    projectCode: string;
-    serviceType: string;
-    taskInfo: TaskData[];
-    animalInfo: AnimalData[];
-    billingInfo: BillingData[];
-  }
-  
   export interface Providers {
     id: string;
     name: string;

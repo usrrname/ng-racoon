@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PatientsComponent } from './patients/patients.component';
-import { FeatureLayoutComponent } from '../shared/components/layouts/feature-layout/feature-layout.component';
-import { PatientsModule } from './patients.module';
+import { HomeLayoutComponent } from '../shared/components/layouts/home-layout/home-layout.component';
 
 const routes: Routes = [
+  {
+   path: '', component: HomeLayoutComponent, children: [
+     { path: '', component: PatientsComponent, pathMatch: 'full' }
+   ]
+  }
 ];
 
 @NgModule({
