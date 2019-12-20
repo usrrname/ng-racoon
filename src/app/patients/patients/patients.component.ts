@@ -1,31 +1,49 @@
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit, Input } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, Input } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { PatientService } from 'src/app/services/patient.service';
+import { UtilService } from 'src/app/services/util.service';
+
 @Component({
   selector: 'app-patients',
   templateUrl: './patients.component.html',
   styleUrls: ['./patients.component.scss']
 })
 export class PatientsComponent{
-  form: FormGroup;
-  @Input() id : string;
-  resultList = [];
-  disabled='false';
-  
-  constructor(private router: Router, private fb: FormBuilder, private patientService: PatientService) {
-    this.form = new FormGroup({
-      id: new FormControl('')
-    })
+  form = this.fb.group({
+    id: ['']
+  })
+  resultList=[];
+  id: string;
+  disabled=false;
+  showErrorMessage = false;
+
+  constructor(private router: Router, private fb: FormBuilder, private patientService: PatientService, private utilService: UtilService) {
    }
+  
+   buildResultList(data: any) {
+    const temp: any = {};
+
+    let emptyString='';
+
+    data.resourceType === "Patient" && data.name ? temp.name = this.utilService.getNameFromResource(data) : data;
+    
+    temp.id = data.id;
+    temp.birthDate = data.birthDate;
+    temp.lastUpdated = this.utilService.getFormatttedDateFromGivenValueForDisplay(data.meta.lastUpdated);
+    this.resultList.push(temp)
+  }
 
   onSubmit(){
-    this.patientService.fetchPatientById(this.id).then(
+    const {id} = this.form.value;
+    this.patientService.fetchPatientById(id).then(
       data => {
-        console.log(data)
-    }).catch(err => {
-      console.warn(this.form);
+       this.buildResultList(data);
+      }).catch(err => {
+        console.log(err);
+        this.showErrorMessage=true;
     })
   }
+
 }

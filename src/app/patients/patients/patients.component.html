@@ -1,12 +1,25 @@
 
 <div class="container">
   <div class="row">
-      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
       <mat-form-field>
-        <input matInput placeholder="Enter Patient ID" formControlName="id" type="text">
-      </mat-form-field>
-
-      <button mat-flat-button color="primary" type="submit"> Get Info </button>
+          <input matInput placeholder="Enter Patient ID" formControlName="id" type="text" />
+      </mat-form-field>   
+    <button mat-flat-button color="accent" type="submit"> Find User </button>
     </form>
+    <p>Form Status: {{ form.status }}</p>
   </div>
+    <div>
+      <div *ngFor="let item of resultList" >
+        <label>Name</label>
+          <p>{{item.name}}</p>
+        <label>Date of Birth</label>
+          <p>{{item.birthDate}}</p>
+        <label>Last Updated</label>
+          <p>{{item.lastUpdated}}</p>
+        <label></label>
+          <p></p>
+      </div>
+    </div>
 </div>

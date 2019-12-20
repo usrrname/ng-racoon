@@ -7,24 +7,18 @@ import { environment } from '../../environments/environment';
 })
 
 export class PatientService {
-  
+
   constructor(private http: HttpClient) { }
 
-  fetchPatientById( _id: string){
-    console.log()
+  fetchPatientById(id){
     return this.http
-    .get(environment.queryURI + '/Patient?' + '_id=' + _id )
-    .toPromise().then(data => {
-      console.log(data);
-    }).catch(err => {
+    .get(environment.queryURI + '/Patient/' + id )
+    .toPromise().catch(err => {
       throw err;
     });
   }
 
-  // fetchPatient(id: string, identifier: string){
-  //   return this.http
-  //   .get(environment.queryURI + '/Patient?_id=' + id + '&identifier=' , 
-  //   {})
-  //   .toPromise();
-  // }
+  findConditionForPatient(){
+    
+  }
 }

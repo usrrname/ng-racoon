@@ -19,8 +19,13 @@ export interface BillingData {
   }
   
   export interface PatientData {
+    name: string;
     id: string;
+    gender?: string;
+    birthDate?: string;
     location: string;
+    address: string;
+    lastUpdated: string;
   }
 
   export interface NoteData {
@@ -34,22 +39,3 @@ export interface BillingData {
     name: string;
     resourceType: string;
   }
-  
-  export interface TaskBillingData {
-    taskIndex: string;
-    name: string;
-    owner: string;
-    ownerId: string;
-    billingItems: BillingItems[];
-  }
-  
-  export interface BillingItems {
-    taskIndex: number;
-    item: string;
-    quantity: number;
-    supplyChargeItemId: string;
-    laborChargeItemId: string;
-    laborCategory: string;
-    laborHours: number;
-  }
-  
