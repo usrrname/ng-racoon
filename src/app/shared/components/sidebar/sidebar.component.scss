@@ -1,6 +1,10 @@
+
+.mat-drawer,
+.mat-sidenav,
 .sidenav{
   display: block;
   height: 100%;
+  padding: 1.25rem;
   min-width: 300px;
   align-items: center;
   justify-content: center;
@@ -10,12 +14,14 @@
 .mat-drawer-container,
 .mat-sidenav-container{
   display: flex;
-  margin: 1em;
   height: 100%;
 }
+
 .mat-drawer-content,
 .mat-sidenav-content{
-  width: inherit;
+  padding: 1.25rem;
+  margin-left: 2em;
+  min-width: 600px;
 }
 div.menu-item{
   padding: 1em;

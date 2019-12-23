@@ -1,7 +1,9 @@
 <div class="container">
+  <h3 class="display-4">Find Your Practicioner</h3>
   <div class="row">
     <form [formGroup]="practForm" (ngSubmit)="onSubmit(form.value)">
       <mat-form-field>
+        <mat-label>Practicioner City</mat-label>
         <mat-select matNativeControl required placeholder="Select a City">
           <mat-option *ngFor="let city of cities" [value]="cities.value">
             {{city.viewValue}}
