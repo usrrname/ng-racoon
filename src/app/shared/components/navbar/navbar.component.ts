@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   logo = 'assets/icons/patient.svg';
 
-  constructor() { }
+  isHome(){
+    if (this.router.url !== '/'){
+      return false;
+    }
+   return true;
+  }
+ 
+  constructor(public router: Router) {
+   
+   }
 
   ngOnInit() {
     
   }
+  
 }

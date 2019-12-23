@@ -1,0 +1,15 @@
+.mat-drawer-container,
+.mat-sidenav-container{
+  display: flex;
+  margin: 1em;
+}
+.mat-drawer-content,
+.mat-sidenav-content{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+div.menu-item{
+  padding: 1rem;
+}

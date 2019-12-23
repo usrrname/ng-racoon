@@ -1,0 +1,19 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="side" (opened)="opened" #sidenav>
+      <div class="menu-item">Item 1</div>
+      <div class="menu-item">Item 2</div>
+      <div class="menu-item">Item 3</div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <mat-slide-toggle 
+        [color]="color"
+        [checked]="checked"
+        [disabled]="disabled"
+        (click)="sidenav.toggle()">
+      </mat-slide-toggle>
+
+
+    <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

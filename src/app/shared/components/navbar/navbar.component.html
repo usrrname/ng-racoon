@@ -2,12 +2,17 @@
     <a routerLink="">
           <img class="logo" [src]=[logo] />
     </a>
+    <span class="fill-remaining-space"  *ngIf="!isHome()">
+            <a routerLink="/"> Back</a>
+    </span>
     <span class="fill-remaining-space"></span>
-    <a routerLink="/"> Back</a>
-    <a routerLink="patients">
+    <a routerLink="/practicioners">
+            <span>Practicioners</span>
+        </a> 
+    <a routerLink="/patients">
         <span>Patients</span>
     </a> 
-    <a routerLink="">
+    <a routerLink="/about">
         <span>About</span>
     </a>
 </mat-toolbar>

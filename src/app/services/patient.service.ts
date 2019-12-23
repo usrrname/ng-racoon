@@ -18,7 +18,12 @@ export class PatientService {
     });
   }
 
-  findConditionForPatient(){
-    
+  findActivePracticionerInCity(city, activity){
+    return this.http.get(environment.queryURI + '/Practicioner/' + '&address-city=' + city + '&_sort=' + activity)
+      .toPromise().then( data =>
+        console.log(data)
+      ).catch(err => {
+        throw err;
+      })
   }
 }

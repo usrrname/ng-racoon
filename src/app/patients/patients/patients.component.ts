@@ -24,17 +24,13 @@ export class PatientsComponent{
   
    buildResultList(data: any) {
     const temp: any = {};
-
-    let emptyString='';
-
     data.resourceType === "Patient" && data.name ? temp.name = this.utilService.getNameFromResource(data) : data;
-    
     temp.id = data.id;
     temp.birthDate = data.birthDate;
     temp.lastUpdated = this.utilService.getFormatttedDateFromGivenValueForDisplay(data.meta.lastUpdated);
     this.resultList.push(temp)
   }
-
+  
   onSubmit(){
     const {id} = this.form.value;
     this.patientService.fetchPatientById(id).then(

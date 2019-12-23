@@ -13,8 +13,10 @@ const routes: Routes = [
       { path: '', component: HomeComponent, pathMatch: 'full' }
     ]
   },
-  { path: 'patients', loadChildren: () => import    ('./patients/patients.module').then(m => m.PatientsModule)
-}
+  { path: 'patients', loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule)
+  },
+  { path: 'practicioners', loadChildren: () => import('./pract/pract.module').then(m => m.PractModule)
+  }
   ];
 
 @NgModule({
