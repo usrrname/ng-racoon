@@ -1,0 +1,22 @@
+.sidenav{
+  display: block;
+  height: 100%;
+  min-width: 300px;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.mat-drawer-container,
+.mat-sidenav-container{
+  display: flex;
+  margin: 1em;
+  height: 100%;
+}
+.mat-drawer-content,
+.mat-sidenav-content{
+  width: inherit;
+}
+div.menu-item{
+  padding: 1em;
+}

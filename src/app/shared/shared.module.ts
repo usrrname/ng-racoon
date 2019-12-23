@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSelectModule} from '@angular/material/select';
 
 //components
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -33,9 +34,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
-    MatSlideToggleModule,
     MatButtonModule,
+    MatSelectModule,
     MatSidenavModule,
+    MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule,
   ],
@@ -46,8 +48,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
-    MatSlideToggleModule,
     MatSidenavModule,
+    MatSelectModule,
+    MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule
   ]

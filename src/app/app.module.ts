@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 // Components
 import { HomeComponent } from './components/home/home.component';
 import { PatientService } from './services/patient.service';
+import { UtilService } from './services/util.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { PatientService } from './services/patient.service';
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [PatientService],
+  providers: [PatientService, UtilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
