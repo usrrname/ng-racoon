@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 //components
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -31,13 +32,14 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   imports: [
     CommonModule,
     RouterModule,
-    MatToolbarModule,
+    MatButtonModule,
+    MatButtonModule,
     MatInputModule,
-    MatButtonModule,
-    MatButtonModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
+    MatToolbarModule,
     FormsModule,
     ReactiveFormsModule,
   ],
@@ -45,12 +47,14 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     CommonModule,
     RouterModule,
     HttpClientModule,
-    MatToolbarModule,
-    MatInputModule,
     MatButtonModule,
-    MatSidenavModule,
+    MatButtonModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
+    MatSidenavModule,
     MatSlideToggleModule,
+    MatToolbarModule,
     FormsModule,
     ReactiveFormsModule
   ]

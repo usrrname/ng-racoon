@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { Router, RouterEvent, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
@@ -10,12 +10,24 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class SidebarComponent implements OnInit {
   sidenav: MatSidenav;
   color = 'accent';
-  disabled = false;
+  mode = 'indeterminate';
+  disabled: boolean;
   opened = false;
+  loading: boolean;
   
-  
-  constructor() { 
+  constructor(private router: Router){
+    this.loading = false;
+    router.events.subscribe( (event: RouterEvent) => {
+      if (event instanceof RouteConfigLoadStart) {
+        this.loading = true;
+      }
+      else if (event instanceof RouteConfigLoadEnd){
+        this.loading = false;
+      }
+      this.loading ? this.disabled = true : this.disabled = false;
+    })
   }
+
     ngOnInit(){
       
       

@@ -5,12 +5,21 @@
       <div class="menu-item">Item 3</div>
     </mat-sidenav>
     <mat-sidenav-content>
-      <mat-slide-toggle 
+      <router-outlet>
+        <mat-progress-spinner
+          class="loader"
+          [color]="color"
+          [mode]="mode"
+          [value]="value"
+          *ngIf="loading">
+        </mat-progress-spinner>
+      </router-outlet>
+      <mat-slide-toggle
+        [hidden]="loading"
         [color]="color"
         [checked]="checked"
         [disabled]="disabled"
         (click)="sidenav.toggle()">
       </mat-slide-toggle>
-      <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
