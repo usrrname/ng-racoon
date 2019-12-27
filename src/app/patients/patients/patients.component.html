@@ -9,16 +9,29 @@
     <button mat-flat-button color="accent" type="submit"> Find User </button>
     </form>
   </div>
-    <div class="row">
+    <div class="row" *ngIf="resultList.length > 0">
       <div *ngFor="let item of resultList" >
         <label>Name</label>
           <p>{{item.name}}</p>
-        <label>Date of Birth</label>
+
+        <label *ngIf="item.birthDate">Date of Birth</label>
           <p>{{item.birthDate}}</p>
+
+        <label>Contact</label>
+        <div *ngIf="item.contact.length === 1">
+          <p>{{item.contact}}</p>
+        </div>
+            <div *ngIf="item.contact.length > 1">
+                <ul *ngFor="let unit of item.contact">
+                  <label>Mobile</label>
+                  <li>{{unit.mobile}}</li>
+                  <label>Home</label>
+                  <li>{{unit.home}}</li>
+                </ul>
+            </div>
+
         <label>Last Updated</label>
           <p>{{item.lastUpdated}}</p>
-        <label></label>
-          <p></p>
       </div>
     </div>
 </div>
