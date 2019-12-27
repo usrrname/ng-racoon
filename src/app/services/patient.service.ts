@@ -18,12 +18,10 @@ export class PatientService {
     });
   }
 
-  findActivePracticionerInCity(city, activeStatus){
+  findPracticionerInCity(city){
     return this.http
-    .get(environment.queryURI + '/Practicioner/' + '&address-city=' + city + '&_sort=' + activeStatus)
-      .toPromise().then( data =>
-        console.log(data)
-      ).catch(err => {
+    .get(environment.queryURI + '/Practitioner' + '?address-city=' + city)
+      .toPromise().catch(err => {
         throw err;
       })
   }
