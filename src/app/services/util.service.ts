@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { formatDate } from '@angular/common';
 
 @Injectable({
@@ -78,5 +78,20 @@ export class UtilService {
   getIdFromReference(reference) {
     return reference.substring(reference.indexOf('/') + 1, reference.length);
   }
-  constructor() { }
-}
+
+  getContactInfo(telecom){
+    let contactValues: any = [];
+    let key;
+    let value : string;
+    for (let item of telecom ){
+      delete item.rank;
+      if (item.system || item.use){
+       key = item.use;
+       value = item.value;
+       contactValues.push({[key] : value})
+      }
+    };
+      return contactValues;
+    };
+    constructor() { }
+  }
