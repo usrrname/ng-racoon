@@ -32,6 +32,13 @@ export class Coding extends FHIRElement {
     }
 
 }
+export class ContactPoint{
+    system?: 'phone' | 'fax' | 'email' | 'pager' | 'url' | 'sms';
+    value: string;
+    use: 'home' | 'work' | 'temp' | 'old' |'mobile';
+    rank?: number;
+    period: Period
+}
 
 export class Extension {
     url: string;
