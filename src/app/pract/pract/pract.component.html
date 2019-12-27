@@ -1,21 +1,21 @@
 <div class="container">
-  <h3 class="display-4">Find Your Practicioner</h3>
+  <h3 class="display-4">Find Your Practitioner</h3>
   <div class="row">
-    <form [formGroup]="practForm" (ngSubmit)="onSubmit(form.value)">
+    <form [formGroup]="practForm" (ngSubmit)="onSubmit(practForm.value)">
       <mat-form-field>
-        <mat-label>Practicioner City</mat-label>
-        <mat-select matNativeControl required placeholder="Select a City">
-          <mat-option *ngFor="let city of cities" [value]="cities.value">
+        <mat-label>Practitioner City</mat-label>
+        <mat-select matNativeControl placeholder="Select a City" formControlName="city" required>
+          <mat-option *ngFor="let city of cities" [value]="city.value">
             {{city.viewValue}}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
         <mat-select matNativeControl formControlName="activeStatus" placeholder="Select Status" required>
-          <mat-option [value]="option">Active</mat-option>
-          <mat-option [value]="option">Inactive</mat-option>
-          </mat-select>
+          <mat-option *ngFor="let status of activeStatus" [value]="status.value">{{status.viewValue}}</mat-option>
+        </mat-select>
       </mat-form-field>
+      <button mat-flat-button color="accent" type="submit">Search</button>
     </form>
   </div>
 </div>

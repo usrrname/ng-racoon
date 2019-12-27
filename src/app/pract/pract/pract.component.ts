@@ -8,6 +8,11 @@ export interface Cities {
   viewValue: string;
 }
 
+export interface PractitionerStatus {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-pract',
   templateUrl: './pract.component.html',
@@ -15,12 +20,16 @@ export interface Cities {
 })
 export class PractComponent implements OnInit {
   city: string;
-  activeStatus : string = 'active' || 'inactive';
+
+  activeStatus : PractitionerStatus[]  = [
+    {value: 'active', viewValue: 'Active'},
+    {value: 'inactive', viewValue: 'Inactive'}
+  ]
   resultList=[];
   cities: Cities[] = [
-    {value: 'NewYork-0', viewValue: 'New York'},
-    {value: 'Boston-1', viewValue: 'Boston'},
-    {value: 'Toronto-2', viewValue: 'Toronto'}
+    {value: 'Yonkers', viewValue: 'Yonkers'},
+    {value: 'Seattle', viewValue: 'Seattle'},
+    {value: 'Los Angeles', viewValue: 'Los Angeles'}
   ];
 
   practForm = this.fb.group({
@@ -31,14 +40,19 @@ export class PractComponent implements OnInit {
   constructor(private router: Router, private patientService: PatientService, private fb: FormBuilder, ) {
 
    }
-   
+  
+  buildResultList(data){
+    console.log(data);
+    data.entry.forEach(element => {
+      
+    });
+  }
 
-  ngOnSubmit(){
-    const {city, activeStatus} = this.practForm.value;
-    this.patientService.findActivePracticionerInCity(city, activeStatus)
-    .then(data => console.log(data))
-    .catch(err => {throw err})
-    ;
+  onSubmit(){
+    const {city} = this.practForm.value;
+    this.patientService.findPracticionerInCity(city)
+    .then(data => this.buildResultList(data))
+    .catch(err => {throw err});
   }
 
 ngOnInit(){
