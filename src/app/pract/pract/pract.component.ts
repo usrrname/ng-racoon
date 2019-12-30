@@ -55,6 +55,6 @@ export class PractComponent implements OnInit {
     .catch(err => {throw err});
   }
 
-ngOnInit(){
-}
+  ngOnInit(){
+  }
 }
