@@ -1,5 +1,7 @@
 import { Injectable, Output } from '@angular/core';
 import { formatDate } from '@angular/common';
+import { ContactKeyValues } from '@interfaces/utility-interfaces';
+import { ContactPoint } from '@interfaces/FHIR';
 
 @Injectable({
   providedIn: 'root'
@@ -80,18 +82,16 @@ export class UtilService {
   }
 
   getContactInfo(telecom){
-    let contactValues: any = [];
-    let key;
-    let value : string;
+    let contactValues: ContactKeyValues[] = [];
+
     for (let item of telecom ){
+      let key: string = item.use || item.system;
+      let value : string = item.value;
       delete item.rank;
-      if (item.system || item.use){
-       key = item.use;
-       value = item.value;
-       contactValues.push({[key] : value})
-      }
+      key ?  contactValues.push({[key] : value}) : item;
     };
-      return contactValues;
-    };
+    return contactValues;
+  }
+  
     constructor() { }
   }
