@@ -26,7 +26,7 @@ export class PatientsComponent{
   showErrorMessage = false;
 
   constructor(private router: Router, private fb: FormBuilder, private patientService: PatientService, private utilService: UtilService) {}
-  contactInfo: ContactKeyValues[] = [
+  contactValues: ContactKeyValues[] = [
     {
       key: 'system',
       value: 'phone' || 'fax' || 'email' || 'pager' || 'url' || 'sms' || 'Not Available'
@@ -36,7 +36,7 @@ export class PatientsComponent{
       value: 'home' || 'work' || 'temp' || 'old' ||'mobile'|| 'Not Available'
     }
   ];
-  contactinfo: ContactPoint[] = [];
+ 
 
    buildResultList(data: any) {
     const temp: any = {};
@@ -53,7 +53,6 @@ export class PatientsComponent{
     temp.id = data.id;
     temp.birthDate = data.birthDate;
     temp.lastUpdated = this.utilService.getFormatttedDateFromGivenValueForDisplay(data.meta.lastUpdated);
-    console.log(temp);
     this.resultList.push(temp);
   }
 
@@ -63,7 +62,6 @@ export class PatientsComponent{
       this.patientService.fetchPatientById(id).then(
         data => {
          this.buildResultList(data);
-         console.log(this.resultList);
         }).catch(err => {
           this.showErrorMessage=true;
       })

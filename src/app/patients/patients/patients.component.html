@@ -18,12 +18,11 @@
           <p>{{item.birthDate}}</p>
 
         <label>Contact</label>
-      
             <div>
                 <ul>
-                  <li *ngFor="let contact of item.contactValues; index as i">
-                    <label>{{contact.key}}</label>
-                    <p>{{contact.value}}</p>
+                  <li *ngFor="let unit of item.contactValues; index as i">
+                    <label>{{unit.key}}</label>
+                    <p>{{unit.value}}</p>
                   </li>
                 </ul>
             </div>

@@ -88,10 +88,10 @@ export class UtilService {
       let key: string = item.use || item.system;
       let value : string = item.value;
       delete item.rank;
-      key ?  contactValues.push({[key] : value}) : item;
+      key ?  contactValues.push({key: key, value: value}) : item;
     };
     return contactValues;
   }
-  
+
     constructor() { }
   }
