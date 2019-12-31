@@ -9,7 +9,7 @@
     lastUpdated: string;
   }
 
-  export interface ContactKeyValues {
+  export interface KeyValue {
     key?: string;
     value?: Number | string;
   }

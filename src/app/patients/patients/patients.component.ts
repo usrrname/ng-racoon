@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 // services
 import { PatientService } from 'src/app/services/patient.service';
 import { UtilService } from 'src/app/services/util.service';
-import { ContactKeyValues } from '@interfaces/utility-interfaces';
+import { KeyValue } from '@interfaces/utility-interfaces';
 import { ContactPoint } from '@interfaces/FHIR';
 
 @Component({
@@ -25,8 +25,13 @@ export class PatientsComponent{
   hidden: boolean;
   showErrorMessage = false;
 
-  constructor(private router: Router, private fb: FormBuilder, private patientService: PatientService, private utilService: UtilService) {}
-  contactValues: ContactKeyValues[] = [
+  constructor(
+    private router: Router, 
+    private fb: FormBuilder, 
+    private patientService: PatientService, 
+    private utilService: UtilService) {}
+
+  contactValues: KeyValue[] = [
     {
       key: 'system',
       value: 'phone' || 'fax' || 'email' || 'pager' || 'url' || 'sms' || 'Not Available'
@@ -55,7 +60,6 @@ export class PatientsComponent{
     temp.lastUpdated = this.utilService.getFormatttedDateFromGivenValueForDisplay(data.meta.lastUpdated);
     this.resultList.push(temp);
   }
-
     
     onSubmit(){
       const {id} = this.form.value;
