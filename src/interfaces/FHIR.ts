@@ -40,6 +40,11 @@ export class ContactPoint{
     period?: Period
 }
 
+export declare class ContactDetail extends FHIRElement {
+    name: string;
+    telecom: ContactPoint;
+}
+
 export class Extension {
     url: string;
     valueString: string;
@@ -64,6 +69,17 @@ export class Address extends FHIRElement {
     country: string;
     period: Period;
 
+}
+
+export declare class Code extends FHIRElement {
+    private _code;
+    private codeRE;
+    constructor(input?: string);
+    private setCode;
+    getcode(): string;
+    setcode(input: string): void;
+    toString(): string;
+    deserialize(jsonObject: any): Code;
 }
 
 export class CodeableConcept extends FHIRElement {
@@ -136,8 +152,14 @@ export class Meta extends FHIRElement {
         });
         return this;
     }
+}
 
-
+export declare class FHIROption extends BackboneElement {
+    value: any;
+    setvalueDate(value: string): void;
+    setvalueTime(value: string): void;
+    setvalueString(value: string): void;
+    setvalueCoding(value: Coding): void;
 }
 
 /* This is the base FHIR Resource from which others are derived */
@@ -148,6 +170,114 @@ export class Resource {
     implicitRules: string;
     language: string;
     extension: Extension[];
+}
+
+export declare class Questionnaire extends Resource implements Serializable<Questionnaire> {
+    url: string;
+    identifier: Identifier[];
+    version: string;
+    name: string;
+    title: string;
+    status: string;
+    experimental: boolean;
+    date: string;
+    publisher: string;
+    description: string;
+    purpose: string;
+    rovalDate: string;
+    lastReviewedDate: string;
+    effectivePeriod: Period;
+    useContext: UsageContext[];
+    jurisdiction: CodeableConcept[];
+    contact: ContactDetail[];
+    copyright: string;
+    code: Coding[];
+    subjectType: Code[];
+    item: Item[];
+    deserialize(jsonObject: any): Questionnaire;
+}
+
+export declare class Item extends BackboneElement {
+    linkId: string;
+    definition: string;
+    code: Coding[];
+    prefix: string;
+    text: string;
+    type: Code;
+    subject: Reference;
+    enableWhen: EnableWhen[];
+    required: boolean;
+    repeats: boolean;
+    readOnly: boolean;
+    maxLength: number;
+    options: string;
+    option: FHIROption[];
+    item: Item[];
+    initial: any;
+    answer: Answer[];
+    initialReference: Reference;
+    initialDateTime: Date;
+}
+
+export declare class QuestionnaireResponseItem extends BackboneElement {
+    linkId: string;
+    definition: string;
+    text: string;
+    answer: Answer[];
+}
+
+export declare class Answer extends BackboneElement {
+    valueDecimal: number;
+    valueInteger: number;
+    valueDate: Date;
+    valueDateTime: Date;
+    valueTime: string;
+    valueString: string;
+    valueUri: string;
+    valueAttachment: Attachment;
+    valueCoding: Coding;
+    valueQuantity: Quantity;
+    valueBoolean: boolean;
+    valueReference: Reference;
+}
+
+export declare class QuestionnaireResponse extends Resource implements Serializable<QuestionnaireResponse> {
+    identifier: Identifier;
+    basedOn: Reference[];
+    parent: Reference[];
+    questionnaire: Reference;
+    status: string;
+    context: Reference;
+    authored: Date;
+    author: Reference;
+    source: Reference;
+    item: QuestionnaireResponseItem[];
+    subject: Reference;
+    deserialize(jsonObject: any): QuestionnaireResponse;
+}
+
+export declare class UsageContext extends FHIRElement {
+    code: Coding;
+    value: any;
+    setvalueCodeableConcept(value: CodeableConcept): void;
+    setvalueQuantity(value: Quantity): void;
+    setvalueRange(value: Range): void;
+}
+
+export declare class EnableWhen extends BackboneElement {
+    question: string;
+    hasAnswer: boolean;
+    answer: any;
+    setanswerBoolean(answer: boolean): void;
+    setanswerInteger(answer: number): void;
+    setanswerDate(answer: string): void;
+    setanswerdateTime(answer: string): void;
+    setanswerTime(answer: string): void;
+    setanswerUri(answer: string): void;
+    setanswerAttachment(answer: any): void;
+    setanswerCoding(answer: Coding): void;
+    setanswerQuantity(answer: Quantity): void;
+    setanswerReference(answer: string): void;
 }
 
 export class Annotation extends FHIRElement {
