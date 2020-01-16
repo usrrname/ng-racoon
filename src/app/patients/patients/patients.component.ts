@@ -1,13 +1,11 @@
 // vendor
 import { FormBuilder } from '@angular/forms';
 import { Component} from '@angular/core';
-import { Router } from '@angular/router';
 
 // services
 import { PatientService } from 'src/app/services/patient.service';
 import { UtilService } from 'src/app/services/util.service';
 import { KeyValue } from '@interfaces/utility-interfaces';
-import { ContactPoint } from '@interfaces/FHIR';
 
 @Component({
   selector: 'app-patients',
@@ -26,7 +24,6 @@ export class PatientsComponent{
   showErrorMessage = false;
 
   constructor(
-    private router: Router, 
     private fb: FormBuilder, 
     private patientService: PatientService, 
     private utilService: UtilService) {}

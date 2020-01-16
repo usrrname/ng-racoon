@@ -1,7 +1,6 @@
-import { Injectable, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { formatDate } from '@angular/common';
-import { ContactKeyValues } from '@interfaces/utility-interfaces';
-import { ContactPoint } from '@interfaces/FHIR';
+import { KeyValue } from '@interfaces/utility-interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -82,7 +81,7 @@ export class UtilService {
   }
 
   getContactInfo(telecom){
-    let contactValues: ContactKeyValues[] = [];
+    let contactValues: KeyValue[] = [];
 
     for (let item of telecom ){
       let key: string = item.use || item.system;
@@ -92,6 +91,5 @@ export class UtilService {
     };
     return contactValues;
   }
-
     constructor() { }
   }

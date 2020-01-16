@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
-  queryURI: 'https://try.smilecdr.com:8000',
+  queryURI: 'http://try.smilecdr.com/baseR4',
   production: false,
   base_href: '',
   domain: 'http://localhost:4200',

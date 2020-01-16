@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { PatientService } from './services/patient.service';
 import { UtilService } from './services/util.service';
+import { ClarityModule } from '@clr/angular';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UtilService } from './services/util.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ClarityModule,
   ],
   providers: [PatientService, UtilService],
   bootstrap: [AppComponent]

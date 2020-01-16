@@ -28,10 +28,12 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@clr/icons/clr-icons.min.css",
+              "node_modules/@clr/ui/clr-ui.min.css",
               "src/sass/styles.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-              "stylePreprocessorOptions": {
+            "stylePreprocessorOptions": {
               "includePaths": [
                 "src/sass/_mixins.scss",
                 "src/sass/_variables.scss"

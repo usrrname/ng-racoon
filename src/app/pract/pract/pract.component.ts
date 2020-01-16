@@ -37,9 +37,7 @@ export class PractComponent implements OnInit {
     activeStatus: ['']
   });
 
-  constructor(private router: Router, private patientService: PatientService, private fb: FormBuilder, ) {
-
-   }
+  constructor(private router: Router, private patientService: PatientService, private fb: FormBuilder, ) {}
   
   buildResultList(data){
     console.log(data);

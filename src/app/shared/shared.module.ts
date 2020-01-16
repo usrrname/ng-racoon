@@ -5,12 +5,13 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 //material ui
-import {MatToolbarModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatTableModule} from '@angular/material/table';
+import {MatToolbarModule} from '@angular/material';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 //components
@@ -33,12 +34,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     CommonModule,
     RouterModule,
     MatButtonModule,
-    MatButtonModule,
     MatInputModule,
     MatProgressSpinnerModule,
     MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
+    MatTableModule,
     MatToolbarModule,
     FormsModule,
     ReactiveFormsModule,
@@ -48,11 +49,11 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     RouterModule,
     HttpClientModule,
     MatButtonModule,
-    MatButtonModule,
     MatInputModule,
     MatProgressSpinnerModule,
     MatSelectModule,
     MatSidenavModule,
+    MatTableModule,
     MatSlideToggleModule,
     MatToolbarModule,
     FormsModule,
