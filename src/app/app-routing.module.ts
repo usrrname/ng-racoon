@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-//components
+// components
 
 import { HomeComponent } from './components/home/home.component';
 import { HomeLayoutComponent } from './shared/components/layouts/home-layout/home-layout.component';
 
 const routes: Routes = [
-  { 
+  {
     path: '', component: HomeLayoutComponent,
     children: [
       { path: '', component: HomeComponent, pathMatch: 'full' }
@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   { path: 'practicioners', loadChildren: () => import('./pract/pract.module').then(m => m.PractModule)
   },
-  { path: 'pokemon', loadChildren: () => import('./pokemon/pokemon.module').then(m => m.PokemonModule)
+  { path: 'survey', loadChildren: () => import('./survey/survey.module').then(m => m.SurveyModule)
   }
 ];
 

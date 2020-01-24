@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as FHIR from '../../../interfaces/FHIR';
-import { UtilService } from '../../services/util.service';
 
 @Component({
   selector: 'app-create-patient',
