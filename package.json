@@ -25,6 +25,7 @@
     "@clr/icons": "2.3.3",
     "@clr/ui": "2.3.3",
     "@webcomponents/custom-elements": "^1.0.0",
+    "angular-oauth2-oidc": "^8.0.4",
     "bootstrap": "^4.4.1",
     "fhirlib": "git+https://gitlab+deploy-token-111429:FskSyMEPkGWn1Y71vmxe@gitlab.com/simpatico.ai/fhir.ts.git#lib",
     "hammerjs": "^2.0.8",
@@ -34,13 +35,13 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.20",
+    "@angular-devkit/build-angular": "^0.803.23",
     "@angular/cli": "~8.3.20",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
