@@ -32,12 +32,12 @@ export class Coding extends FHIRElement {
     }
 
 }
-export class ContactPoint{
+export class ContactPoint {
     system?: 'phone' | 'fax' | 'email' | 'pager' | 'url' | 'sms';
     value?: string;
     use?: 'home' | 'work' | 'temp' | 'old' |'mobile';
-    rank?: Number;
-    period?: Period
+    rank?: number;
+    period?: Period;
 }
 
 export declare class ContactDetail extends FHIRElement {
@@ -72,7 +72,7 @@ export class Address extends FHIRElement {
 }
 
 export declare class Code extends FHIRElement {
-    private _code;
+    private code;
     private codeRE;
     constructor(input?: string);
     private setCode;
@@ -172,7 +172,7 @@ export class Resource {
     extension: Extension[];
 }
 
-export declare class Questionnaire extends Resource implements Serializable<Questionnaire> {
+export class Questionnaire extends Resource implements Serializable<Questionnaire> {
     url: string;
     identifier: Identifier[];
     version: string;
@@ -184,7 +184,7 @@ export declare class Questionnaire extends Resource implements Serializable<Ques
     publisher: string;
     description: string;
     purpose: string;
-    rovalDate: string;
+    approvalDate: string;
     lastReviewedDate: string;
     effectivePeriod: Period;
     useContext: UsageContext[];
@@ -192,54 +192,88 @@ export declare class Questionnaire extends Resource implements Serializable<Ques
     contact: ContactDetail[];
     copyright: string;
     code: Coding[];
-    subjectType: Code[];
+    subjectType: string[];
     item: Item[];
-    deserialize(jsonObject: any): Questionnaire;
+
+    deserialize(jsonObject: any): Questionnaire {
+      const that = this;
+      Object.entries(jsonObject).forEach((value) => {
+        if (!(typeof value[1] === 'object')) {
+          that[value[0]] = value[1];
+        } else {
+          (that[value[0]].deserialize(value[1]));
+        }
+      });
+      return this;
+    }
 }
 
-export declare class Item extends BackboneElement {
+export class Item extends BackboneElement {
     linkId: string;
     definition: string;
     code: Coding[];
     prefix: string;
     text: string;
-    type: Code;
+    type: string;
     subject: Reference;
     enableWhen: EnableWhen[];
+    // This is a new element added from R4
+    // This element must be specified if more than one enableWhen value is provided.
+    // Possible values: all | any
+    enableBehavior: string;
     required: boolean;
     repeats: boolean;
     readOnly: boolean;
     maxLength: number;
-    options: string;
-    option: FHIROption[];
+    answerValueSet: string;
+    answerOption: AnswerOption[];
     item: Item[];
-    initial: any;
+    initial: any[];
     answer: Answer[];
     initialReference: Reference;
     initialDateTime: Date;
-}
+  }
 
 export declare class QuestionnaireResponseItem extends BackboneElement {
     linkId: string;
-    definition: string;
+    definition?: string;
     text: string;
     answer: Answer[];
 }
 
-export declare class Answer extends BackboneElement {
-    valueDecimal: number;
-    valueInteger: number;
-    valueDate: Date;
-    valueDateTime: Date;
-    valueTime: string;
-    valueString: string;
-    valueUri: string;
-    valueAttachment: Attachment;
-    valueCoding: Coding;
-    valueQuantity: Quantity;
-    valueBoolean: boolean;
-    valueReference: Reference;
-}
+export class Answer extends BackboneElement {
+    valueDecimal?: number;
+    valueInteger?: number;
+    valueDate?: Date;
+    valueDateTime?: Date;
+    valueTime?: string;
+    valueString?: string;
+    valueUri?: string;
+    valueAttachment?: Attachment;
+    valueCoding?: Coding;
+    valueQuantity?: Quantity;
+    valueBoolean?: boolean;
+    valueReference?: Reference;
+  }
+
+export class AnswerOption extends BackboneElement {
+    value: any;
+    setvalueDate(value: string) {
+      this.value = value;
+    }
+    setvalueTime(value: string) {
+      this.value = value;
+    }
+    setvalueString(value: string) {
+      this.value = value;
+    }
+    setvalueCoding(value: Coding) {
+      this.value = value;
+    }
+    setValueReference(value: Reference) {
+        this.value = value;
+    }
+  }
 
 export declare class QuestionnaireResponse extends Resource implements Serializable<QuestionnaireResponse> {
     identifier: Identifier;
@@ -264,21 +298,46 @@ export declare class UsageContext extends FHIRElement {
     setvalueRange(value: Range): void;
 }
 
-export declare class EnableWhen extends BackboneElement {
+export class EnableWhen extends BackboneElement {
     question: string;
-    hasAnswer: boolean;
+    // Starting from R4, answer is a required element, meaning it has a minimum cardinality of 1
     answer: any;
-    setanswerBoolean(answer: boolean): void;
-    setanswerInteger(answer: number): void;
-    setanswerDate(answer: string): void;
-    setanswerdateTime(answer: string): void;
-    setanswerTime(answer: string): void;
-    setanswerUri(answer: string): void;
-    setanswerAttachment(answer: any): void;
-    setanswerCoding(answer: Coding): void;
-    setanswerQuantity(answer: Quantity): void;
-    setanswerReference(answer: string): void;
-}
+    // This is a new, mandatory element starting from R4
+    // accepted values are: exists | = | != | > | < | >= | <=
+    operator: string;
+
+    setanswerBoolean(answer: boolean) {
+      this.answer = answer;
+    }
+    setanswerInteger(answer: number) {
+      this.answer = answer;
+    }
+    setanswerDate(answer: string) {
+      this.answer = answer;
+    }
+    setanswerdateTime(answer: string) {
+      this.answer = answer;
+    }
+    setanswerTime(answer: string) {
+      this.answer = answer;
+    }
+    setanswerUri(answer: string) {
+      this.answer = answer;
+    }
+    setanswerAttachment(answer: any) {
+      this.answer = answer;
+    }
+    setanswerCoding(answer: Coding) {
+      this.answer = answer;
+    }
+    setanswerQuantity(answer: Quantity) {
+      this.answer = answer;
+    }
+    setanswerReference(answer: string) {
+      this.answer = answer;
+    }
+
+  }
 
 export class Annotation extends FHIRElement {
     authorReference: Reference;

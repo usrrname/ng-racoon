@@ -1,4 +1,4 @@
-  
+
   export interface PatientData {
     name: string;
     id: string;
@@ -11,9 +11,9 @@
 
   export interface KeyValue {
     key?: string;
-    value?: Number | string;
+    value?: number | string;
   }
-  
+
   export interface Providers {
     id: string;
     name: string;
