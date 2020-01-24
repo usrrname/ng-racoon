@@ -7,10 +7,8 @@ export const environment = {
   base_href: '',
   domain: 'http://localhost:4200',
   redirectUri: 'http://localhost:4200',
+  resourceProviderURI: '',
   clientId: 'Smile-CDR',
-  // jsonAPI: 'https://try.smilecdr.com/json-admin',
-  // nodeId: 'Master',
-  // moduleId: 'local_security',
 };
 
 /*
