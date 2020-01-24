@@ -1,19 +1,22 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src/",
     "paths":{
-      "@app/*": [
-        "src/app/*"
-      ],
-      "@service/*": [
-        "src/app/service/*"
-      ],
       "@interfaces/*" : [
-        "src/interfaces/*"
+        "interfaces/*"
+      ],
+      "@environments/*" : [
+        "environments/*"
+      ],
+      "@services/*": [
+        "app/services/*"
       ],
       "@shared/*": [
-        "src/app/shared/*"
+        "app/shared/*"
+      ],
+      "@app/*": [
+        "app/*"
       ]
     },
     "outDir": "./dist/out-tsc",
@@ -36,5 +39,16 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/test.ts",
+    "src/**/*.spec.ts"
+  ]
 }
