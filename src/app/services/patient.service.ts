@@ -10,7 +10,7 @@ export class PatientService {
 
   constructor(private http: HttpClient) { }
 
-  fetchPatientById(id){
+  fetchPatientById(id) {
     return this.http
     .get(environment.queryURI + '/Patient/' + id )
     .toPromise().catch(err => {
@@ -18,11 +18,11 @@ export class PatientService {
     });
   }
 
-  findPracticionerInCity(city){
+  findPracticionerInCity(city) {
     return this.http
     .get(environment.queryURI + '/Practitioner' + '?address-city=' + city)
       .toPromise().catch(err => {
         throw err;
-      })
+      });
   }
 }

@@ -1,17 +1,12 @@
 import { Injectable } from '@angular/core';
 import { formatDate } from '@angular/common';
-import { KeyValue } from '@interfaces/utility-interfaces';
+import { KeyValue } from '../../interfaces/utility-interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class UtilService {
-
-  deepClone(obj){
-    let mutatedObject = {};
-    return mutatedObject = JSON.parse(JSON.stringify(obj));
-  }
 
   fetchExtensionWithKeyWord(patient, keyword) {
     let result = '';
@@ -80,16 +75,16 @@ export class UtilService {
     return reference.substring(reference.indexOf('/') + 1, reference.length);
   }
 
-  getContactInfo(telecom){
-    let contactValues: KeyValue[] = [];
+  getContactInfo(telecom) {
+    const contactValues: KeyValue[] = [];
 
-    for (let item of telecom ){
-      let key: string = item.use || item.system;
-      let value : string = item.value;
+    for (const item of telecom ) {
+      const key: string = item.use || item.system;
+      const value: string = item.value;
       delete item.rank;
-      key ?  contactValues.push({key: key, value: value}) : item;
-    };
+      contactValues.push({key, value});
+    }
     return contactValues;
   }
-    constructor() { }
-  }
+  constructor() { }
+}
