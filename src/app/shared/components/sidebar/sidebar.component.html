@@ -1,25 +1,19 @@
-<mat-sidenav-container autosize>
-    <mat-sidenav mode="side" (opened)="opened" #sidenav class="sidenav">
+<div class="content-area">
+    <div (opened)="opened" class="sidenav" >
+      <section class="sidenav-content">
       <div class="menu-item">Item 1</div>
       <div class="menu-item">Item 2</div>
       <div class="menu-item">Item 3</div>
-    </mat-sidenav>
-    <mat-sidenav-content>
+      </section>
+    </div>>
       <router-outlet>
-        <mat-progress-spinner
-          class="loader"
-          [color]="color"
-          [mode]="mode"
-          [value]="value"
+        <span
+          class="spinner spinner-inline"
+          value="value"
           *ngIf="loading">
-        </mat-progress-spinner>
+      </span>
       </router-outlet>
-      <mat-slide-toggle
-        [hidden]="loading"
-        [color]="color"
-        [checked]="checked"
-        [disabled]="disabled"
+    <button
         (click)="sidenav.toggle()">
-      </mat-slide-toggle>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+    </button>
+</div>

@@ -9,19 +9,19 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   logo = 'assets/icons/patient.svg';
 
-  isHome(){
-    if (this.router.url !== '/'){
+  isHome() {
+    if (this.router.url !== '/') {
       return false;
     }
-   return true;
+    return true;
   }
- 
+
   constructor(public router: Router) {
-   
+
    }
 
   ngOnInit() {
-    
+
   }
-  
+
 }

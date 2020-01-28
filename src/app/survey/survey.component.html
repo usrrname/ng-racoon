@@ -1,11 +1,17 @@
-<div class="container">
+<div class="content-container">
   <table>
-    <thead>
-      Title
-    </thead>
-    <tr>
-      <td></td>
-    </tr>
+    <h3>
+      {{formInfo.title}}
+    </h3>
+    <section *ngFor="let item of questionList">
+      <span>{{item.number}}</span>
+      <p>
+        {{item.title}}
+      </p>
+      <p *ngFor="let question of item.list">
+        {{question.co}}
+      </p>
+    </section>
   </table>
 
 </div>

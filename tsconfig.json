@@ -1,54 +1,61 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src/",
-    "paths":{
-      "@interfaces/*" : [
-        "interfaces/*"
-      ],
-      "@environments/*" : [
-        "environments/*"
-      ],
-      "@services/*": [
-        "app/services/*"
-      ],
-      "@shared/*": [
-        "app/shared/*"
-      ],
-      "@app/*": [
-        "app/*"
-      ]
-    },
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
+  "plugins": [
+  {
+    "name": "typescript-tslint-plugin"
+  }],
+  "baseUrl": "./src/",
+  "paths":{
+    "@interfaces/*" : [
+      "interfaces/*"
     ],
-    "lib": [
-      "es2018",
-      "dom"
+    "@environments/*" : [
+      "environments/*"
+    ],
+    "@services/*": [
+      "app/services/*"
+    ],
+    "@shared/*": [
+      "app/shared/*"
+    ],
+    "@app/*": [
+      "app/*"
     ]
   },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
-  },
-  "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
+  "outDir": "./dist/out-tsc",
+  "sourceMap": true,
+  "declaration": false,
+  "downlevelIteration": true,
+  "experimentalDecorators": true,
+  "module": "esnext",
+  "moduleResolution": "node",
+  "importHelpers": true,
+  "target": "es2015",
+  "typeRoots": [
+    "node_modules/@types"
   ],
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/test.ts",
-    "src/**/*.spec.ts"
+  "lib": [
+    "es2018",
+    "dom"
   ]
+},
+"angularCompilerOptions": {
+  "fullTemplateTypeCheck": true,
+  "strictInjectionParameters": true
+},
+"files": [
+  "src/main.ts",
+  "src/polyfills.ts"
+],
+"include": [
+  "src/**/*.ts"
+],
+"exclude": [
+  "src/test.ts",
+  "src/**/*.spec.ts"
+],
+"files.associations": {
+  "tslint.json": "jsonc"
+}
 }

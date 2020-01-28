@@ -4,13 +4,12 @@ import { SurveyRoutingModule } from './survey-routing.module';
 import { SurveyComponent } from './survey.component';
 import { SharedModule } from '@shared/shared.module';
 
-
 @NgModule({
   declarations: [SurveyComponent],
   imports: [
-    SharedModule,
-    CommonModule,
-    SurveyRoutingModule
+  SharedModule,
+  CommonModule,
+  SurveyRoutingModule
   ]
 })
 export class SurveyModule { }
