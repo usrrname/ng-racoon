@@ -1,0 +1,202 @@
+@import "./_variables.scss";
+@import "./_mixins";
+
+/* Base styles */
+html,
+body {
+  font-family: $open-sans;
+  @include reset;
+}
+
+body {
+  font-size: inherit;
+  background-color: $body-background;
+}
+
+.container-content {
+  width: calc(100% - responsiveSize($sidebar-width));
+}
+
+.sidenav {
+  width: responsiveSize($sidebar-width);
+}
+
+h1,
+.page-title {
+  @include fontSize(24px);
+}
+
+h2 {
+  @include fontSize(22px);
+}
+
+h3 {
+  @include fontSize(18px);
+}
+
+h4 {
+  @include fontSize(12px);
+}
+
+h5 {
+  @include fontSize(10px);
+}
+h6 {
+  @include fontSize(9px);
+}
+
+a,
+a:link,
+.return-link {
+  color: $facebook-blue !important;
+  cursor: pointer;
+  &:hover {
+    color: $back-button-text-hover !important;
+  }
+}
+
+p,
+ul,
+ol,
+li,
+a,
+.p1 {
+  margin: 0;
+  @include fontSize(14px);
+}
+
+select:invalid, select:disabled{ color: $gray; }
+
+p {
+  @include BodyText();
+}
+
+.primary-title {
+  @extend .p2 !optional;
+  @include PrimaryTitle();
+}
+
+.secondary-title {
+  @include SecondaryTitle();
+}
+
+app-navbar.header{
+  @include NavBar();
+  @include NavTab();
+}
+
+.card,
+form.clr-form {
+  box-shadow: none;
+  @include Card();
+  .card-header {
+    @include PrimaryTitle();
+  }
+  .card-title {
+    @include SecondaryTitle();
+  }
+  .card-block {
+    font-size: fontSize(13px);
+  }
+}
+
+table {
+  @include TableView();
+}
+
+clr-datagrid {
+  @include Datagrid();
+}
+
+label {
+  @include Label();
+}
+
+.badge,
+span:is(.badge),
+span:has(.badge),
+span.badge {
+  @include StatBadge();
+}
+
+.badge-success {
+  @include StatBadge();
+  @include EnableStat();
+}
+.badge-danger {
+  @include StatBadge();
+  @include DisableStat();
+}
+
+button {
+  @extend .btn;
+  @extend .p6 !optional;
+  border-radius: $button-border-radius;
+}
+
+.btn {
+  @extend .btn;
+  text-transform: none;
+  @include MediumButton();
+}
+
+.btn.btn-sm {
+  @extend .btn-sm;
+  @include SmallButton();
+}
+
+.btn-primary {
+  color: $primary-button-text;
+  background-color: $pale-purple;
+  border-color: transparent;
+  &:hover {
+    background-color: $mint-green;
+    color: $leaf-green;
+  }
+}
+
+.btn-secondary,
+.btn-outline {
+  color: $secondary-button-text;
+  background-color: $secondary-button-background;
+  border: solid 0.5px $pale-purple;
+}
+
+.btn-link,
+.btn-tertiary {
+  color: $tertiary-button-text;
+  background-color: transparent;
+  :hover {
+    color: $dark-gray;
+    background-color: $tertiary-button-hover-background;
+  }
+}
+
+.clr-control-container,
+.clr-select-wrapper {
+  width: 100%;
+}
+
+.modal {
+  @include FixedModal();
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.d-block {
+  display: block;
+}

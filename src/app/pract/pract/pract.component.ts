@@ -1,17 +1,9 @@
+import {Cities, PractitionerStatus} from '@interfaces/utility-interfaces';
 import { Component, OnInit } from '@angular/core';
-import { PatientService } from '@app/services/patient.service';
+
 import { FormBuilder } from '@angular/forms';
+import { PatientService } from '@app/services/patient.service';
 import { Router } from '@angular/router';
-
-export interface Cities {
-  value: string;
-  viewValue: string;
-}
-
-export interface PractitionerStatus {
-  value: string;
-  viewValue: string;
-}
 
 @Component({
   selector: 'app-pract',
@@ -20,12 +12,12 @@ export interface PractitionerStatus {
 })
 export class PractComponent implements OnInit {
   city: string;
-
-  activeStatus : PractitionerStatus[]  = [
+  activeStatus: PractitionerStatus[]  = [
     {value: 'active', viewValue: 'Active'},
     {value: 'inactive', viewValue: 'Inactive'}
-  ]
-  resultList=[];
+  ];
+
+  resultList = [];
   cities: Cities[] = [
     {value: 'Yonkers', viewValue: 'Yonkers'},
     {value: 'Seattle', viewValue: 'Seattle'},
@@ -38,21 +30,21 @@ export class PractComponent implements OnInit {
   });
 
   constructor(private router: Router, private patientService: PatientService, private fb: FormBuilder, ) {}
-  
-  buildResultList(data){
+
+  buildResultList(data) {
     console.log(data);
     data.entry.forEach(element => {
-      
+
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     const {city} = this.practForm.value;
     this.patientService.findPracticionerInCity(city)
     .then(data => this.buildResultList(data))
-    .catch(err => {throw err});
+    .catch(err => {throw err; });
   }
 
-  ngOnInit(){
+  ngOnInit() {
   }
 }

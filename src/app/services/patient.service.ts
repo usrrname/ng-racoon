@@ -10,19 +10,19 @@ export class PatientService {
 
   constructor(private http: HttpClient) { }
 
-  fetchPatientById(id) {
-    return this.http
-    .get(environment.queryURI + '/Patient/' + id )
-    .toPromise().catch(err => {
-      throw err;
-    });
+fetchPatientById(id) {
+  return this.http
+  .get(environment.queryURI + '/Patient/' + id )
+  .toPromise().catch(err => {
+    throw err;
+  });
   }
 
-  findPracticionerInCity(city) {
-    return this.http
-    .get(environment.queryURI + '/Practitioner' + '?address-city=' + city)
-      .toPromise().catch(err => {
-        throw err;
-      });
-  }
+findPracticionerInCity(city) {
+return this.http
+.get(environment.queryURI + '/Practitioner' + '?address-city=' + city)
+.toPromise().catch(err => {
+  throw err;
+});
+}
 }

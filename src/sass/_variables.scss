@@ -1,6 +1,229 @@
-//brand palette 
-$dark-gray: #262626;
+/* Global Styles */
+
+/* Dimensions */
+$root-font-size: 24px !default;
+$nav-logo-width: 100px;
+$root-em: 1em !default;
+$root-rem: 1rem !default;
+$ratio: 1.2;
+$line-height-default: 30px;
+
+/* Breakpoints */
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+/* Sizes */
+$badge-width: 80px !default;
+$badge-height: 30px !default;
+$form-card-width: 800px;
+$form-card-height: 128px;
+$sidebar-width: 250px;
+
+// Convert any value into a number without px, em, or rem
+@function remove-unit($target){
+  $one: 1;
+  // if $target has a value, find out which is being used
+  @if (type-of($target) == 'number'){
+    //find out the unit of measurement being used
+    @if (compatible($target, 1px)){
+      $one: 1px;
+    }
+    @else if (compatible($target, 1em)) {
+      $one: $root-em;
+    }
+    @else if (compatible($target, 1rem)) {
+      $one: $root-rem;
+    }
+    @else if (compatible($target, 1%)){
+      $one: 1%;
+    }
+      // return a value with no unit
+    @return $target / $one ;
+    } @else {
+    @warn "#{$target} is not a number!";
+  }
+}
+
+// For Fonts Only: PX to EM global function
+@function em($target){
+  @return $target/$root-font-size * $root-em;
+}
+// For Fonts only: PX to REM global function
+@function rem($target){
+  @return $target/$root-font-size * $root-rem;
+}
+
+@function convert-unit($target, $convert-unit, $context: $breakpoint-xl){
+  // $convert-unit accepts as values %, em, rem, or px
+  $context: remove-unit($context);
+
+  @if ($convert-unit == 'px') {
+    @if (compatible($target, 1px)){
+      @return target;
+    } @else {
+      $target: remove-unit($target) * 1px;
+      @return $target;
+    }
+  }
+  @else if ($convert-unit == '%') {
+    @if (compatible($target, 1%)) {
+      @return $target * 1%;
+    } @else{
+    @return (remove-unit($target) / $context) * 1%;
+  }
+}
+  @else if($convert-unit == 'em'){
+    @if (compatible($target, $root-em)){
+      @return $target;
+    }@else{
+      $target: remove-unit($target) * 1em;
+      @return $target;
+    }
+    @return $target;
+  }
+  @else if($convert-unit == 'rem') {
+    @if (compatible($target, $root-rem)) {
+      @return $target;
+    }
+   @else {
+      $target:remove-unit($target * $root-rem);
+      @return $target
+    };
+    @return $target;
+  }
+  @else {
+    @warn "The unit being used is #{unit($target)}, #{$target} should be in px, %, em or rem";
+    @return $target;
+    }
+  }
+
+$small-screen: "only screen and (min-width #{$breakpoint-sm})";
+$tablet-screen: "only screen and (min-width #{$breakpoint-md})";
+$large-screen: "only screen and (min-width #{$breakpoint-lg})";
+$xlarge-screen: "only screen and (min-width: #{$breakpoint-xl})";
+
+// For calculating width and heights of div or modals in percentage
+@mixin responsiveSize($w-value, $h-value) {
+  @if (($w-value>99 or $h-value>99) or
+      (compatible($w-value, 1px) or compatible($h-value,1px))){
+    $w-value: remove-unit($w-value) /10;
+    $h-value: remove-unit($h-value) /10;
+  }
+  $width: convert-unit($w-value, '%', $breakpoint-xl);
+  $height: convert-unit($h-value, '%');
+
+  width: $width;
+  height: $height;
+}
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+$open-sans: "Open Sans","Avenir Next", "Helvetica Neue", sans-serif;
+$clr-font: $open-sans;
+
+@mixin fontSize($size) {
+  font-size: rem($size);
+}
+
+@function findlineHeight($size){
+  $lineHeight: calc(rem($size) * rem($line-height-default) * $ratio);
+  @return #{$lineHeight}rem;
+}
+
+@mixin lineHeight($value){
+ line-height: lineHeight($value);
+}
+
+/* COLORS */
 $eggshell:  #f1ecf0;
 $pale-gray: #cfd8dc;
 $palest-rose: #fce4ec;
 $flamingo-pink: #f48fb1;
+$pale-purple: rgb(138, 133, 201);
+$leaf-green: rgb(6, 110, 70);
+$mint-green: rgb(178, 243, 218);
+$black: #000000;
+$gray: #343434;
+$medium-gray: #7F7F7F;
+$light-gray: #c7c7c7;
+$dark-gray: #262626;
+
+// Other Colours
+$eggwhite: #f7f7f7;
+$white: white;
+$gray-light: $medium-gray;
+$subtle-gray: #b3b4b2;
+$facebook-blue: #0033FF;
+$fifteen-red: rgba(255, 0, 0, 0.15); // table header background
+$fifty-percent-blue: rgba(0, 0, 238, 0.5); // enable badge background color
+$fifty-percent-red:  rgba(250, 0, 0, 0.5); // disable badge background color
+$burgundy-red: #a32100;
+
+$body-background: $eggwhite;
+$app-background: $eggwhite;
+
+// Custom padding
+$container-padding: initial;
+
+// Borders
+$card-border-radius: 5px;
+$button-border-radius: 3px;
+$badge-border-radius: 13.5px;
+
+// Text Colors
+$enable-badge-text: $flamingo-pink;
+$disable-badge-text: $burgundy-red;
+$primary-button-text: $white;
+$primary-button-background: $pale-purple;
+$primary-button-hover: $palest-rose;
+$secondary-button-text: $pale-purple;
+$secondary-button-background: $eggwhite;
+$tertiary-button-text: $pale-purple;
+$tertiary-button-hover-background: $white;
+$back-button-text: $gray-light;
+$back-button-text-hover: $facebook-blue;
+
+/* padding and margin utility class */
+$space: 1rem;
+$spaces: (
+  0: 0,
+  1: ($space * .25),
+  2: ($space * .5),
+  3: ($space * .75),
+  4: ($space),
+  5: ($space * 1.5),
+  6: ($space * 2.25),
+  7: ($space * 4),
+  8: ($space * 6.5)
+);
+
+$xy-box: (
+  top: t,
+  right: r,
+  bottom: b,
+  left: l
+);
+
+@each $prop, $edge in (margin: m, padding: p) {
+
+  // top, right, bottom, and left
+  @each $direction, $d in $xy-box {
+
+    @each $unit, $rem in $spaces {
+      .#{$edge}#{$d}-#{$unit} {
+        #{$prop}-#{$direction}: #{$rem};
+      }
+
+      // provide selectors for x-axis
+      .#{$edge}h-#{$unit} {
+        #{$prop}: 0 $rem;
+      }
+      // provide selectors for y-axis spacing
+      .#{$edge}v-#{$unit} {
+        #{$prop}: $rem 0;
+      }
+    }
+  }
+}

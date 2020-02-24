@@ -1,10 +1,4 @@
 <app-navbar></app-navbar>
-<router-outlet>
-  <mat-progress-spinner
-    class="loader"
-    [color]="color"
-    [mode]="mode"
-    [value]="value"
-    *ngIf="loading">
-  </mat-progress-spinner>
-</router-outlet>
+<div class="main-container">
+  <router-outlet></router-outlet>
+</div>

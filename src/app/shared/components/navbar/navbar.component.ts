@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,13 +16,7 @@ export class NavbarComponent implements OnInit {
     }
     return true;
   }
+  constructor(public router: Router) { }
 
-  constructor(public router: Router) {
-
-   }
-
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 }

@@ -1,21 +1,28 @@
-<div class="content-container">
-  <h3 class="display-6">Find Your Practitioner</h3>
-  <div class="row">
-    <form [formGroup]="practForm" (ngSubmit)="onSubmit(practForm.value)">
-      <mat-form-field>
-        <mat-label>Practitioner City</mat-label>
-        <mat-select matNativeControl placeholder="Select a City" formControlName="city" required>
-          <mat-option *ngFor="let city of cities" [value]="city.value">
+
+<div class="clr-col-lg-12 clr-col-md-6 clr-col-6">
+  <div class="clr-row">
+    <h3 class="page-title">Find Your Practitioner</h3>
+    <form clrForm class="card clr-form w-100" [formGroup]="practForm" (ngSubmit)="onSubmit(practForm.value)">
+      <div class="card-header">
+        Enter your info
+      </div>
+      <div class="card-block">
+        <label>Practitioner City</label>
+        <select class="clr-select" formControlName="city" required>
+          <option disabled selected>Select A City</option>
+          <option *ngFor="let city of cities" [value]="city.value">
             {{city.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-select matNativeControl formControlName="activeStatus" placeholder="Select Status" required>
-          <mat-option *ngFor="let status of activeStatus" [value]="status.value">{{status.viewValue}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button mat-flat-button color="accent" type="submit">Search</button>
+          </option>
+        </select>
+        <label>Status</label>
+        <select formControlName="activeStatus" class="clr-select" required>
+          <option disabled selected>Select A Status</option>
+          <option *ngFor="let status of activeStatus" [value]="status.value">{{status.viewValue}}</option>
+        </select>
+        <button class="btn btn-sm btn-primary" type="submit">Search</button>
+      </div>
     </form>
   </div>
+  <div class="clr-col-6"></div>
 </div>
+

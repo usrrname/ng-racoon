@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feature-layout.component.scss']
 })
 export class FeatureLayoutComponent implements OnInit {
-  
+
   constructor() { }
 
   ngOnInit() {

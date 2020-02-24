@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeLayoutComponent } from '@shared/components/layouts/home-layout/home-layout.component';
-import { SurveyComponent } from './survey.component';
+import { RouterModule, Routes } from '@angular/router';
 
+import { HomeLayoutComponent } from '@shared/components/layouts/home-layout/home-layout.component';
+import { NgModule } from '@angular/core';
+import { SurveyComponent } from './survey.component';
 
 const routes: Routes = [
   {

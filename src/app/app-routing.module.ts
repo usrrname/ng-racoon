@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   { path: 'patients', loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule)
   },
-  { path: 'practicioners', loadChildren: () => import('./pract/pract.module').then(m => m.PractModule)
+  { path: 'practitioners', loadChildren: () => import('./pract/pract.module').then(m => m.PractModule)
   },
   { path: 'survey', loadChildren: () => import('./survey/survey.module').then(m => m.SurveyModule)
   }

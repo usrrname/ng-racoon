@@ -1,17 +1,13 @@
 <div class="content-container">
-  <table>
-    <h3>
-      {{formInfo.title}}
-    </h3>
-    <section *ngFor="let item of questionList">
-      <span>{{item.number}}</span>
-      <p>
-        {{item.title}}
-      </p>
-      <p *ngFor="let question of item.list">
-        {{question.co}}
-      </p>
-    </section>
-  </table>
-
-</div>
+  <div class="content-area">
+    <table class="clr-table">
+        <h3 class="card-header"> {{formInfo.title}}</h3>
+        <div *ngFor="let item of questionList">
+          <span>{{item.number}}</span>
+          <p>{{item.title}}</p>
+          <p *ngFor="let question of item.list">
+            {{question}}
+          </p>
+        </div>
+      </table>
+  </div>

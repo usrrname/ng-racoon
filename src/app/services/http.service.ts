@@ -6,15 +6,14 @@ import { environment } from '@environments/environment';
   providedIn: 'root'
 })
 export class HttpService {
-  getResourceById(resourceType: string, id: string) {
-    const query = resourceType + '/' + id;
-    return this.GETQueryWithParams(query);
-  }
+getResourceById(resourceType: string, id: string) {
+const query = resourceType + '/' + id;
+return this.GETQueryWithParams(query);
+}
 
-  GETQueryWithParams(queryParams) {
-    return this.http.get(environment.resourceProviderURI + '/' + queryParams,
-   ).toPromise();
-  }
-
+GETQueryWithParams(queryParams) {
+return this.http.get(environment.resourceProviderURI + '/' + queryParams,
+).toPromise();
+}
   constructor(private http: HttpClient) { }
 }

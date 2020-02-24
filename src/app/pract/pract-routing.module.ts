@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { PractComponent } from './pract/pract.component';
-import { FeatureLayoutComponent } from '../shared/components/layouts/feature-layout/feature-layout.component';
+import { RouterModule, Routes } from '@angular/router';
 
+import { HomeLayoutComponent } from '@shared/components/layouts/home-layout/home-layout.component';
+import { NgModule } from '@angular/core';
+import { PractComponent } from './pract/pract.component';
 
 const routes: Routes = [  {
-  path: '', component: FeatureLayoutComponent, children: [
+  path: '', component: HomeLayoutComponent, children: [
     { path: '', component: PractComponent, pathMatch: 'full' }
   ]
  }];

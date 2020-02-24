@@ -1,20 +1,17 @@
-<header class="header header-6">
-    <nav class="nav-group" color="primary" role="navigation">
-        <a routerLink="">
-              <img class="logo" [src]=[logo] />
-        </a>
-        <span class="fill-remaining-space"  *ngIf="!isHome()">
-                <a routerLink="/"> Back</a>
-        </span>
-        <span class="fill-remaining-space"></span>
-        <a routerLink="/practicioners">
-                <span>Practitioners</span>
-            </a> 
-        <a routerLink="/patients">
-            <span>Patients</span>
-        </a> 
-        <a routerLink="/survey">
-            <span>Pets</span>
-        </a>
-    </nav>
+<header class="header header-6 clr-justify-content-around clr-align-items-center header-actions">
+      <div class="branding clr-align-self-start">
+            <img [src]=[logo] />
+      </div>
+      <button *ngIf="!isHome()" class="btn btn-link">
+              <a routerLink="/"> Back</a>
+      </button>
+      <button routerLink="/practitioners" class="btn btn-link">
+          Practitioners
+        </button>
+      <button class="btn btn-link" routerLink="/patients">
+          Patients
+      </button>
+      <button class="btn btn-link" routerLink="/survey">
+          Pets
+      </button>
 </header>

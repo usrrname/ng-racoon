@@ -17,7 +17,6 @@
     "@angular/compiler": "~8.2.14",
     "@angular/core": "~8.2.14",
     "@angular/forms": "~8.2.14",
-    "@angular/material": "^8.2.3",
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
@@ -26,7 +25,6 @@
     "@clr/ui": "2.3.3",
     "@webcomponents/custom-elements": "^1.0.0",
     "angular-oauth2-oidc": "^8.0.4",
-    "bootstrap": "^4.4.1",
     "fhirlib": "git+https://gitlab+deploy-token-111429:FskSyMEPkGWn1Y71vmxe@gitlab.com/simpatico.ai/fhir.ts.git#lib",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.4.0",
@@ -53,6 +51,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "^3.5.3",
+    "typescript-tslint-plugin": "^0.5.5"
   }
 }

@@ -1,34 +1,31 @@
 
-<div class="content-container">
-  <div class="row">
-    
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-      <mat-form-field>
-          <input matInput placeholder="Enter Patient ID" formControlName="id" type="text" />
-      </mat-form-field>   
-    <button mat-flat-button color="accent" type="submit"> Find User </button>
+<div class="clr-col-lg-10 clr-col-md-8 clr-col-12 ph-7 mv-3">
+  <div class="clr-row">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" clrForm class="w-100 form">
+      <div class="clr-container">
+          <input class="clr-input" placeholder="Enter Patient ID" formControlName="id" type="text" />
+      </div>
+    <button class="btn btn-sm btn-primary" type="submit"> Find User </button>
     </form>
   </div>
-    <div class="row">
-      <div *ngFor="let item of resultList" >
-        <label>Name</label>
-          <p>{{item.name}}</p>
-
-        <label *ngIf="item.birthDate">Date of Birth</label>
-          <p>{{item.birthDate}}</p>
-
-        <label>Contact</label>
-            <div>
-                <ul>
-                  <li *ngFor="let unit of item.contactValues; index as i">
-                    <label>{{unit.key}}</label>
-                    <p>{{unit.value}}</p>
-                  </li>
-                </ul>
-            </div>
-
-        <label>Last Updated</label>
-          <p>{{item.lastUpdated}}</p>
-      </div>
+<div class="clr-row mv-3">
+  <table class="clr-table w-100" *ngFor="let item of resultList">
+    <thead>
+      <th><label>Name</label></th>
+      <th><label>Date of Birth</label></th>
+      <th *ngFor="let unit of item.contactValues"><label>{{unit.key}}</label></th>
+      <th><label>Last Updated</label></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of resultList">
+        <td>{{item.name}}</td>
+        <td>{{item.birthDate}}</td>
+        <td *ngFor="let unit of item.contactValues">{{unit.value}}</td>
+        <td>{{item.lastUpdated}}</td>
+      </tr>
+    </tbody>
+  </table>
+    <div class="clr-col-lg-2 clr-col-2">
     </div>
+  </div>
 </div>
