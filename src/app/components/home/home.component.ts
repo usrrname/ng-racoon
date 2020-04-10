@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   userId;
   logo = 'assets/patient.svg';
-  showErrorMessage=false;
+  showErrorMessage = false;
 
   constructor() { }
 

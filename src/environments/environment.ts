@@ -8,7 +8,7 @@ export const environment = {
   domain: 'http://localhost:4200',
   redirectUri: 'http://localhost:4200',
   resourceProviderURI: '',
-  clientId: 'Smile-CDR',
+  clientId: '',
 };
 
 /*

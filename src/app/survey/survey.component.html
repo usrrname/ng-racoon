@@ -1,13 +1,28 @@
-<div class="content-container">
-  <div class="content-area">
-    <table class="clr-table">
-        <h3 class="card-header"> {{formInfo.title}}</h3>
-        <div *ngFor="let item of questionList">
-          <span>{{item.number}}</span>
-          <p>{{item.title}}</p>
-          <p *ngFor="let question of item.list">
-            {{question}}
-          </p>
+<div class="content-area">
+  <h3 class="card-header">
+    {{formInfo.title}}
+  </h3>
+  <div *ngFor="let item of questionsList">
+    <p><span>{{item.number}}.</span> {{item.text || item.title}}</p>
+    <select *ngIf="item.type === 'boolean'">
+      <option selected disabled>Pick an option</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+    <div *ngIf="item.type === 'group'">
+      <div *ngFor="let question of item.list">
+        <p><span>{{question.linkId}}.</span> {{question.text}}</p>
+        <input *ngIf="question.type === 'string'" />
+        <div class="full-width clr-justify-content-between" *ngIf="question.type === 'date'">
+          <clr-date-container>
+          </clr-date-container>
         </div>
-      </table>
+        <select *ngIf="question.type === 'boolean'">
+          <option selected disabled>Pick an option</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+    </div>
   </div>
+</div>
+</div>
