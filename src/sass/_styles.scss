@@ -1,10 +1,10 @@
-@import "./_variables.scss";
+@import "./_variables";
 @import "./_mixins";
 
 /* Base styles */
 html,
 body {
-  font-family: $open-sans;
+  font-family: $noto-sans;
   @include reset;
 }
 

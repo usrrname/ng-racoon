@@ -1,14 +1,15 @@
 @import "./_variables";
 
+
 @mixin PageTitle {
-  font-family: $open-sans;
+  font-family: $VT323;
   font-weight: normal;
   color: $black;
   @include fontSize(24px);
 }
 
 @mixin PrimaryTitle {
-  font-family: $open-sans;
+  font-family: $noto-sans;
   color: $gray;
   @include fontSize(16px);
   @include lineHeight(16px);
@@ -22,12 +23,11 @@
 }
 
 @mixin NavBar {
-  .header {
-    &.header-6 {
-      background: $white;
+  header.header {
+      background-color: $chansey-pink;
       height: 2.7rem;
       border-bottom: 1px solid $fifty-percent-blue;
-    }
+      span.spacer { flex: 1 1 auto; }
     .header-actions {
       .branding {
         padding: 0 1rem;
@@ -36,7 +36,7 @@
       }
     }
   }
-}
+  }
 
 @mixin NavTab {
   @include fontSize(12px);

@@ -1,25 +1,25 @@
 
 <div class="clr-row">
   <div class="clr-col-lg-12 clr-col-md-6 clr-col-6">
-    <h3 class="page-title">Find Your Practitioner</h3>
-    <form clrForm class="card clr-form w-100" [formGroup]="practForm" (ngSubmit)="onSubmit(practForm.value)">
+    <h3 class="page-title">Find Your Doctor</h3>
+    <form clrForm class="card clr-form w-100" [formGroup]="practForm">
       <div class="card-header">
         Enter your info
       </div>
       <div class="card-block">
-        <label>Practitioner City</label>
+        <label>City</label>
         <select class="clr-select" formControlName="city" required>
           <option disabled selected>Select A City</option>
           <option *ngFor="let city of cities" [value]="city.value">
-            {{city.viewValue}}
+            {{city.value}}
           </option>
         </select>
         <label>Status</label>
         <select formControlName="activeStatus" class="clr-select" required>
           <option disabled selected>Select A Status</option>
-          <option *ngFor="let status of activeStatus" [value]="status.value">{{status.viewValue}}</option>
+          <option *ngFor="let status of activeStatus" [value]="status.value">{{status.value}}</option>
         </select>
-        <button class="btn btn-sm btn-primary" type="submit">Search</button>
+        <button class="btn btn-sm btn-primary" type="submit" (click)="onSubmit()">Search</button>
       </div>
     </form>
   </div>

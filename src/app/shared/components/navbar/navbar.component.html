@@ -1,17 +1,18 @@
-<header class="header header-9 clr-justify-content-between clr-align-items-center header-actions">
+<header class="header clr-align-items-center">
       <div class="branding clr-align-self-start">
             <img [src]=[logo] />
       </div>
+      <span class="spacer"></span>
       <button *ngIf="!isHome()" class="btn btn-link">
               <a routerLink="/"> Back</a>
       </button>
       <button routerLink="/practitioners" class="btn btn-link">
-          Practitioners
+          Healers
         </button>
       <button class="btn btn-link" routerLink="/patients">
           Patients
       </button>
       <button class="btn btn-link" routerLink="/survey">
-          Pokemon
+          Intake
       </button>
 </header>

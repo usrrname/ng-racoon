@@ -1,11 +1,10 @@
+import { Component } from '@angular/core';
 // vendor
 import { FormBuilder } from '@angular/forms';
-import { Component} from '@angular/core';
-
+import { KeyValue } from '@interfaces/utility-interfaces';
 // services
 import { PatientService } from '@services/patient.service';
 import { UtilService } from '@services/util.service';
-import { KeyValue } from '@interfaces/utility-interfaces';
 
 @Component({
   selector: 'app-patients',
@@ -54,7 +53,7 @@ const contactInfo = data.telecom && data.telecom !== null
 temp.contactValues = contactInfo;
 temp.id = data.id;
 temp.birthDate = data.birthDate;
-temp.lastUpdated = this.utilService.getFormatttedDateFromGivenValueForDisplay(data.meta.lastUpdated);
+temp.lastUpdated = this.utilService.getFormattedDate(data.meta.lastUpdated);
 this.resultList.push(temp);
 }
 

@@ -1,30 +1,31 @@
-
 <div class="clr-col-lg-10 clr-col-md-8 clr-col-12 ph-7 mv-3">
   <div class="clr-row">
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" clrForm class="w-100 form">
+    <form [formGroup]="form" class="w-100 clr-form">
       <div class="clr-container">
-          <input class="clr-input" placeholder="Enter Patient ID" formControlName="id" type="text" />
+        <input class="clr-input" placeholder="Enter Patient ID" formControlName="id" type="text" />
       </div>
-    <button class="btn btn-sm btn-primary" type="submit"> Find User </button>
+      <button class="btn btn-sm btn-primary" type="submit" (click)="onSubmit()">Search</button>
     </form>
   </div>
-<div class="clr-row mv-3">
-  <table class="clr-table w-100" *ngFor="let item of resultList">
-    <thead>
-      <th><label>Name</label></th>
-      <th><label>Date of Birth</label></th>
-      <th *ngFor="let unit of item.contactValues"><label>{{unit.key}}</label></th>
-      <th><label>Last Updated</label></th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of resultList">
-        <td>{{item.name}}</td>
-        <td>{{item.birthDate}}</td>
-        <td *ngFor="let unit of item.contactValues">{{unit.value}}</td>
-        <td>{{item.lastUpdated}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="clr-row mv-3">
+    <clr-datagrid>
+      <table class="clr-table w-100" *ngFor="let item of resultList">
+        <thead>
+          <th><label>Name</label></th>
+          <th><label>Date of Birth</label></th>
+          <th *ngFor="let unit of item.contactValues"><label>{{unit.key}}</label></th>
+          <th><label>Last Updated</label></th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of resultList">
+            <td>{{item.name}}</td>
+            <td>{{item.birthDate}}</td>
+            <td *ngFor="let unit of item.contactValues">{{unit.value}}</td>
+            <td>{{item.lastUpdated}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </clr-datagrid>
     <div class="clr-col-lg-2 clr-col-2">
     </div>
   </div>

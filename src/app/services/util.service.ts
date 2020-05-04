@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { formatDate } from '@angular/common';
 import { KeyValue } from '../../interfaces/utility-interfaces';
-
+import {Resource} from 'fhir';
+import { formatDate } from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +23,7 @@ fetchExtensionWithKeyWord(patient, keyword) {
   return result;
 }
 
-getNameFromResource(resource) {
+getNameFromResource(resource: Resource) {
   let lastName = '';
   let firstName = '';
   if (resource && resource.name) {
@@ -41,34 +41,20 @@ getCurrentDate() {
   return formatDate(new Date(), 'yyyy-MM-dd', 'en');
 }
 
-getFormatttedDateFromGivenValue(date) {
+getFormattedDate(date) {
   return formatDate(date, 'yyyy-MM-dd', 'en');
 }
 
-getFormatttedDateFromGivenValueForDisplay(date) {
-  return formatDate(date, 'MM-dd-yyyy', 'en');
-}
-
-sortArrayWithColumnName(array, columnName) {
-  array = array.sort((a, b) => {
-    if (a.columnName && b.columnName) {
-      return (
-        b.columnName - a.columnName
-      );
-    }
-  });
-  return array;
-}
-
-sortArray(array) {
-  array = array.sort((a, b) => {
-    if (a && b) {
-      return (
-        b - a
-      );
-    }
-  });
-  return array;
+getAddress(resource) {
+  let result: string;
+  if (resource.address[0]) {
+    const address = resource.address[0];
+    result = address.line[0] + ', ' + address.city + ', ' + address.state;
+  } else {
+    const address = resource.address;
+    result = address.line[0] + ', ' + address.city + ', ' + address.state;
+  }
+  return result;
 }
 
 getIdFromReference(reference) {

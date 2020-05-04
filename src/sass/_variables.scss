@@ -119,9 +119,12 @@ $xlarge-screen: "only screen and (min-width: #{$breakpoint-xl})";
 }
 
 /* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
-$open-sans: "Open Sans","Avenir Next", "Helvetica Neue", sans-serif;
-$clr-font: $open-sans;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300...500');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+$noto-sans: "Noto Sans JP", "Helvetica Neue", sans-serif;
+$VT323: "VT323", 'Arial', Monospace;
+$clr-font: $noto-sans;
 
 @mixin fontSize($size) {
   font-size: rem($size);
@@ -140,7 +143,8 @@ $clr-font: $open-sans;
 $eggshell:  #f1ecf0;
 $pale-gray: #cfd8dc;
 $palest-rose: #fce4ec;
-$flamingo-pink: #f48fb1;
+$chansey-pink: #ffd6d6;
+$dusty-red: #8b4141;
 $pale-purple: rgb(138, 133, 201);
 $leaf-green: rgb(6, 110, 70);
 $mint-green: rgb(178, 243, 218);
@@ -173,7 +177,7 @@ $button-border-radius: 3px;
 $badge-border-radius: 13.5px;
 
 // Text Colors
-$enable-badge-text: $flamingo-pink;
+$enable-badge-text: $dusty-red;
 $disable-badge-text: $burgundy-red;
 $primary-button-text: $white;
 $primary-button-background: $pale-purple;
