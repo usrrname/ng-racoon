@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  logo = 'assets/icons/patient.svg';
+  logo = 'assets/icons/logo.svg';
 
   isHome() {
     if (this.router.url !== '/') {
