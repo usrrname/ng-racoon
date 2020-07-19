@@ -29,7 +29,7 @@
     "fhirlib": "git+https://gitlab+deploy-token-111429:FskSyMEPkGWn1Y71vmxe@gitlab.com/simpatico.ai/fhir.ts.git#lib",
     "hammerjs": "^2.0.8",
     "intersection-observer": "^0.7.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "rxjs": "~6.5.5",
     "serialize-javascript": "^2.1.2",
     "tslib": "^1.10.0",
